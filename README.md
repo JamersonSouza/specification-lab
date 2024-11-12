@@ -30,7 +30,7 @@ A aplicação possui duas funcionalidades principais:
     "email": "jamerson@mail.com"
   }
 
-  ### 2. Listagem de Dados com Filtros Dinâmicos
+### 2. Listagem de Dados com Filtros Dinâmicos
 
 - **Método**: `GET`
 - **URL**: `/client`
