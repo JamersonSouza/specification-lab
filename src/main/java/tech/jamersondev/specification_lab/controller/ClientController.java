@@ -11,6 +11,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import tech.jamersondev.specification_lab.model.Client;
 import tech.jamersondev.specification_lab.records.ClientForm;
 import tech.jamersondev.specification_lab.services.ClientService;
+import tech.jamersondev.specification_lab.specifications.SpecificationClientTemplate;
 
 import java.net.URI;
 import java.util.List;
@@ -25,8 +26,8 @@ public class ClientController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ClientForm>> listClients(){
-        List<ClientForm> clients = this.clientService.listAllClients();
+    public ResponseEntity<List<ClientForm>> listClients(SpecificationClientTemplate.ISpecificationClientTemplate specification){
+        List<ClientForm> clients = this.clientService.listAllClients(specification);
         if(clients.isEmpty()){
             return ResponseEntity.noContent().build();
         }

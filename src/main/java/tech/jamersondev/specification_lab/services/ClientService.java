@@ -1,5 +1,6 @@
 package tech.jamersondev.specification_lab.services;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import tech.jamersondev.specification_lab.interfaces.ClientInterface;
 import tech.jamersondev.specification_lab.model.Client;
@@ -17,8 +18,8 @@ public class ClientService implements ClientInterface {
     }
 
     @Override
-    public List<ClientForm> listAllClients() {
-        List<Client> allClients = this.clientRepository.findAll();
+    public List<ClientForm> listAllClients(Specification<Client> specification) {
+        List<Client> allClients = this.clientRepository.findAll(specification);
         return allClients.stream().map(ClientForm::new).toList();
     }
 
